@@ -1,0 +1,16 @@
+page {
+  flex: 1;
+  display: flex;
+  font-family: "PingFang SC";
+}
+.plain-button {
+  margin: 0 30rpx;
+  border-color: #1CCFC9;
+  color: #1CCFC9;
+}
+.fl-r {
+  float: right;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}

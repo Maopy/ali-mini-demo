@@ -1,0 +1,159 @@
+<view>
+  <view class="order-cont-top">
+    <view class="order-cont-name">
+      物品待领取
+    </view>
+    <view class="order-cont-text">
+      请你于2017年11月24日09:30前领取物品，如超时未领取，订单将自动取消。
+    </view>
+  </view>
+  <view class="order-section">
+    <view class="order-section--title">取物凭证</view>
+    <view class="order-cont-rwm">
+      <image class="order-cont-rwm-img" src="../../images/rwm.png" mode="aspectFit"/>
+      <text class="order-cont-rwm--text">还物时需出示以上二维码</text>
+    </view>
+
+    <view class="order-section--title">
+      <text class="order-shop-tit-r"></text>
+      <text class="order-section--title-text">取物门店信息</text>
+      <view class="order-section--title-addition">
+        <text class="order-section--title-addition-text button-text">展开更多</text>
+      </view>
+    </view>
+    <view class="order-cont-ul">
+      <view class="order-cont-li order-shop-item">
+        <view class="order-shop-item--header">
+          <text class="order-shop-item--header-title">取物点名称</text>
+          <text class="order-shop-item--header-distance">284m</text>
+        </view>
+        <text class="order-shop-item--time">营业时间：周一至周五 9:00～18:00</text>
+        <view class="order-shop-item--address">
+          <text>宋城千古情中间家乐福大超市西门</text>
+        </view>
+      </view>
+      <view class="order-cont-li order-shop-item">
+        <view class="order-shop-item--header">
+          <text class="order-shop-item--header-title">取物点名称</text>
+          <text class="order-shop-item--header-distance">284m</text>
+        </view>
+        <text class="order-shop-item--time">营业时间：周一至周五 9:00～18:00</text>
+        <view class="order-shop-item--address">
+          <text>宋城千古情中间家乐福大超市西门</text>
+        </view>
+      </view>
+      <view class="order-cont-li order-shop-item last">
+        <view class="order-shop-item--header">
+          <text class="order-shop-item--header-title">取物点名称</text>
+          <text class="order-shop-item--header-distance">284m</text>
+        </view>
+        <text class="order-shop-item--time">营业时间：周一至周五 9:00～18:00</text>
+        <view class="order-shop-item--address">
+          <text>宋城千古情中间家乐福大超市西门</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-section">
+    <view class="order-section--title">
+      <text class="order-section--title-text">费用明细</text>
+      <text class="order-section--title-badge">芝麻信用·免押金</text>
+      <view class="order-section--title-addition">
+        <text class="order-section--title-addition-text">共租
+          <text class="cost-count">2</text>
+        件</text>
+      </view>
+    </view>
+    <view class="order-cont-ul">
+      <view class="order-cont-li cost-detail-item">
+        <image class="cost-detail-img" src="../../images/img-01.png" />
+        <view class="cost-detail-item--main">
+          <view>传统汉服女装藏蓝色</view>
+          <view class="cost-detail-item--money">
+            <view class="cost-detail-item--money-item">
+              <text class="cost-detail-item--money-item-badge">租 金</text>
+              <text class="cost-detail-item--money-item-money">300.00</text>
+              <text> /天</text>
+            </view>
+            <view class="cost-detail-item--money-item">
+              <text class="cost-detail-item--money-item-badge">押 金</text>
+              <text class="cost-detail-item--money-item-money">500.00</text>
+            </view>
+          </view>
+          <view class="cost-detail-item--count">X1</view>
+        </view>
+      </view>
+      <view class="order-cont-li cost-detail-item last">
+        <image class="cost-detail-img" src="../../images/img-01.png" />
+        <view class="cost-detail-item--main">
+          <view>传统汉服女装藏蓝色传统汉服女装藏蓝色传统汉服女装藏蓝色</view>
+          <view class="cost-detail-item--money">
+            <view class="cost-detail-item--money-item">
+              <text class="cost-detail-item--money-item-badge">租 金</text>
+              <text class="cost-detail-item--money-item-money">300.00</text>
+              <text> /天</text>
+            </view>
+            <view class="cost-detail-item--money-item">
+              <text class="cost-detail-item--money-item-badge">押 金</text>
+              <text class="cost-detail-item--money-item-money">500.00</text>
+            </view>
+          </view>
+          <view class="cost-detail-item--count">X1</view>
+        </view>
+      </view>
+    </view>
+    <view class="deposit">
+      <view class="deposit-item">
+        <text>总押金</text>
+        <text class="fl-r">¥1,000.00</text>
+      </view>
+      <view>
+        <text>芝麻信用免押金</text>
+        <text class="fl-r">-¥1,000.00</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-section cancel-rule-wrapper">
+    <view class="order-section--title">
+      <text class="order-section--title-text">取消规则</text>
+    </view>
+    <view class="cancel-rule">
+      <view class="cancel-rule-item">下单半小时内可免费取消</view>
+      <view class="cancel-rule-item">超时未领取物品，订单将自动取消</view>
+    </view>
+    <button class="plain-button" type="default" size="defaultSize" onTap="confirmCancel"> 取消订单 </button>
+  </view>
+
+  <view class="order-section mb-0">
+    <view class="order-section--title">
+      <text class="order-section--title-text">订单信息</text>
+    </view>
+    <view class="order-info">
+      <view class="order-info-item">
+        <text>联系人</text>
+        <text class="fl-r">张三</text>
+      </view>
+      <view class="order-info-item">
+        <text>联系电话</text>
+        <text class="fl-r">15800000000</text>
+      </view>
+      <view class="order-info-item">
+        <text>订单号</text>
+        <text class="fl-r">1180757132</text>
+      </view>
+      <view class="order-info-item">
+        <text>领取时间</text>
+        <text class="fl-r">2017年11月24日 09:25</text>
+      </view>
+      <view class="order-info-item">
+        <text>归还时间</text>
+        <text class="fl-r">2017年11月29日 17:59</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <text class="button-connect">联系商家</text>
+  </view>
+</view>

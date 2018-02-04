@@ -1,0 +1,67 @@
+.order-list{
+  padding: 84rpx 0 0 0;
+}
+.order-list-tab{
+  position: fixed;
+  top:0;left:0;right:0;
+  background: #fff;
+  padding: 0 30rpx;
+  height: 84rpx;
+}
+.order-list-label{
+  padding-top:10rpx; 
+  width: 95rpx;
+  text-align: center;
+  line-height: 72rpx;
+  float:left;
+  color:#878787;
+  font-size:28rpx;
+  margin: 0 20rpx;
+}
+.order-list-label-pitch{
+  border-bottom:4rpx solid #1CCFC9;
+}
+.order-list-li{
+  width: 690rpx;
+  height: 240rpx;
+  margin: 30rpx;
+  border-radius: 8rpx;
+  background: #fff;
+}
+.order-list-li:active{
+  background: #eee;
+}
+.order-list-title{
+  position: relative;
+  height: 102rpx;
+  margin: 0 30rpx;
+  border-bottom:1px solid #ddd;
+  line-height: 102rpx;
+  font-size:32rpx;
+}
+.order-list-type{
+  position: absolute;
+  right:0;
+  top:28rpx;
+  font-size:24rpx;
+  border: 1px solid #1CCFC9;
+  border-radius: 6rpx;
+  line-height: 41rpx;
+  padding: 0 5rpx;
+  color:#1CCFC9;
+  background: #F1FBFA;
+}
+.order-list-cont{
+  margin:auto 30rpx;
+  background: url(../../images/to-right-li.png) no-repeat right 50rpx;
+  background-size: 16rpx;
+}
+.order-list-cont-tit{
+  display: block;
+  font-size:28rpx;
+  padding: 30rpx 0 10rpx;
+}
+.order-list-cont-text{
+  font-size: 24rpx;
+  color:#999;
+}

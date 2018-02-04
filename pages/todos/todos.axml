@@ -1,0 +1,42 @@
+<view class="page-todos">
+  <view class="user">
+    <view class="user-name" onTap="addTodo">
+      <image class="avatar" src="{{user.avatar}}" background-size="cover"></image>
+      <view class="nickname">{{user.nickName}}</view>
+      <view class="nicktext">你的订单在此查看哦～</view>
+      <image class="to-right" src="../../images/to-right.png" background-size="cover" mode="aspectFit" ></image>
+    </view>
+    <!-- <image class="top-text" src="../../images/top-text.png" background-size="cover" mode="aspectFit" ></image> -->
+    <view class="rent-tips">
+      <view class="rent-tips--header">
+        <text class="rent-tips--header-text" onTap="goThere">东区租赁点</text>
+        <image class="rent-tips--header-image" src="../../images/zmxy-logo.png" mode="aspectFit" />
+      </view>
+      <view class="rent-tips--body">
+        营业时间：周一至周五 9:00～18:00
+      </view>
+      <view class="rent-tips--footer" onTap="showXuzhi">
+        租赁须知：租机窗口取机，景区出口归还、半小时内...
+      </view>
+    </view>
+  </view>
+  <view class="todo-ul">
+    <view a:for="{{goodsList}}" class="todo-li">
+      <image class="todo-li-img" src="{{item.imgUrl}}" mode="aspectFit" />
+      <view class="todo-li-name">{{item.name}}</view>
+      <view class="todo-li-j"><label class="todo-li-label">租金</label>￥<text class="todo-li-text">{{item.rent}}.00/天</text></view>
+      <view class="todo-li-j"><label class="todo-li-label">押金</label>￥<text class="todo-li-text">{{item.deposit}}.00</text></view>
+      <view class="todo-li-num">
+        <view class="todo-li-num-01" hidden="{{item.count <= 0}}" data-item="{{item}}" data-index="{{index}}" data-operate="minus" onTap="changeCount">-</view>
+        <view class="todo-li-num-text" hidden="{{item.count <= 0}}">{{item.count}}</view>
+        <view  class="todo-li-num-02" data-item="{{item}}" data-index="{{index}}" data-operate="add" onTap="changeCount">+</view>
+      </view>
+      <view class="todo-li-bottom"></view>
+    </view>
+  </view>
+  <view class="todo-button">
+      <button class="button" style="background: {{totalCount == 0 ? '#ddd' : ''}}" onTap="goContent">申请芝麻信用免押评估</button>
+      <view class="todo-rmb">合计押金<label class="todo-label">￥{{totalDeposit}}</label></view>
+      <view class="todo-num">已选{{totalCount}}件物品</view>
+  </view>
+</view>

@@ -1,0 +1,113 @@
+.order-section {
+  width: 750rpx;
+  margin-bottom: 42rpx;
+  background: #fff;
+}
+.order-section--title {
+  height: 72rpx;
+  line-height: 72rpx;
+  padding: 20rpx 0 0 0;
+  margin: 0 30rpx;
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #ddd;
+  overflow: hidden;
+}
+.order-section--title-text {
+  float: left;
+}
+
+.order-cont-ul {
+  border-bottom: 1rpx solid #ddd;
+}
+.order-cont-li {
+  margin: 0 30rpx;
+  padding: 40rpx 0;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+}
+.order-cont-li.last {
+  border: 0 none;
+}
+
+.order-shop-item {
+  font-size: 24rpx;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+}
+.order-shop-item--header {
+  margin-bottom: 20rpx;
+}
+.order-shop-item--header-title {
+  font-size: 28rpx;
+  color: #333;
+}
+.order-shop-item--header-distance {
+  line-height: 28rpx;
+  color: #999;
+  float: right;
+}
+.order-shop-item--time {
+  color: #999;
+  display: block;
+  margin-bottom: 20rpx;
+}
+.order-shop-item--address {
+  color: #999;
+  line-height: 28rpx;
+}
+
+.cost-detail-item {
+  padding: 30rpx 0 40rpx;
+}
+.cost-detail-img {
+  width: 120rpx;
+  height: 120rpx;
+  float: left;
+}
+.cost-detail-item--main {
+  margin-left: 140rpx;
+  color: #333;
+  line-height: 40rpx;
+}
+.cost-detail-item--money {
+  display: flex;
+  flex-direction: row;
+}
+.cost-detail-item--money-item {
+  flex: 1;
+}
+.cost-detail-item--money-item-badge {
+  color: #999;
+  width: 80rpx;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  background: #F5F5F5;
+  display: inline-block;
+  text-align: center;
+}
+.cost-detail-item--money-item-money {
+  line-height: 30rpx;
+  display: inline-block;
+  margin: 10rpx 0 5rpx 10rpx;
+}
+.cost-detail-item--money-item-money::before {
+  content: '¥';
+  font-size: 20rpx;
+}
+.cost-detail-item--count {
+  float: right;
+  color: #999;
+}
+
+.button-go-there {
+  background: #1CCFC9;
+  color: white;
+  margin: 0 30rpx;
+}
+.go-there-hint {
+  color: #999;
+  font-size: 28rpx;
+  display: block;
+  text-align: center;
+  margin: 30rpx 0 50rpx;
+}

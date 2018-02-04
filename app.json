@@ -1,0 +1,13 @@
+{
+  "pages": [
+    
+    "pages/map/map",
+    "pages/rental-point/rental-point",
+    "pages/order-cont/order-cont",
+    "pages/todos/todos",
+    "pages/order-list/order-list"
+  ],
+  "window": {
+    "defaultTitle": "共享导游"
+  }
+}

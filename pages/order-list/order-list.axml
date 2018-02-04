@@ -1,0 +1,41 @@
+<view class="order-list">
+  <view class="order-list-tab">
+    <label class="order-list-label order-list-label-pitch">全部</label>
+    <label class="order-list-label">待领取</label>
+    <label class="order-list-label">待归还</label>
+    <label class="order-list-label">待支付</label>
+    <label class="order-list-label">已逾期</label>
+  </view>
+  <view class="order-list-ul">
+    <view class="order-list-li" onTap="goOrderDetail">
+      <view class="order-list-title">
+        <text class="order-list-name">南区租赁点<text>
+        <text class="order-list-type">待领取<text>
+      </view>
+      <view class="order-list-cont">
+        <view class="order-list-cont-tit">共租赁 2 件物品</view>
+        <text class="order-list-cont-text">棒！你已归还物品并完成付款<text>
+      </view>
+    </view>
+    <view class="order-list-li">
+      <view class="order-list-title">
+        <text class="order-list-name">南区租赁点<text>
+        <text class="order-list-type">待领取<text>
+      </view>
+      <view class="order-list-cont">
+        <view class="order-list-cont-tit">共租赁 2 件物品</view>
+        <text class="order-list-cont-text">棒！你已归还物品并完成付款<text>
+      </view>
+    </view>
+    <view class="order-list-li">
+      <view class="order-list-title">
+        <text class="order-list-name">南区租赁点<text>
+        <text class="order-list-type">待领取<text>
+      </view>
+      <view class="order-list-cont">
+        <view class="order-list-cont-tit">共租赁 2 件物品</view>
+        <text class="order-list-cont-text">棒！你已归还物品并完成付款<text>
+      </view>
+    </view>
+  </view>
+</view>
