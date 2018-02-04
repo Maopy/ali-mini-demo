@@ -66,40 +66,22 @@
       </view>
     </view>
     <view class="order-cont-ul">
-      <view class="order-cont-li cost-detail-item">
+      <view a:for="{{goodsList}}" class="order-cont-li cost-detail-item {{index == goodsList.length - 1 ? 'last' : ''}}">
         <image class="cost-detail-img" src="../../images/img-01.png" />
         <view class="cost-detail-item--main">
-          <view>传统汉服女装藏蓝色</view>
+          <view>{{item.name}}</view>
           <view class="cost-detail-item--money">
             <view class="cost-detail-item--money-item">
               <text class="cost-detail-item--money-item-badge">租 金</text>
-              <text class="cost-detail-item--money-item-money">300.00</text>
+              <text class="cost-detail-item--money-item-money">{{item.rent}}.00</text>
               <text> /天</text>
             </view>
             <view class="cost-detail-item--money-item">
               <text class="cost-detail-item--money-item-badge">押 金</text>
-              <text class="cost-detail-item--money-item-money">500.00</text>
+              <text class="cost-detail-item--money-item-money">{{item.deposit}}.00</text>
             </view>
           </view>
-          <view class="cost-detail-item--count">X1</view>
-        </view>
-      </view>
-      <view class="order-cont-li cost-detail-item last">
-        <image class="cost-detail-img" src="../../images/img-01.png" />
-        <view class="cost-detail-item--main">
-          <view>传统汉服女装藏蓝色传统汉服女装藏蓝色传统汉服女装藏蓝色</view>
-          <view class="cost-detail-item--money">
-            <view class="cost-detail-item--money-item">
-              <text class="cost-detail-item--money-item-badge">租 金</text>
-              <text class="cost-detail-item--money-item-money">300.00</text>
-              <text> /天</text>
-            </view>
-            <view class="cost-detail-item--money-item">
-              <text class="cost-detail-item--money-item-badge">押 金</text>
-              <text class="cost-detail-item--money-item-money">500.00</text>
-            </view>
-          </view>
-          <view class="cost-detail-item--count">X1</view>
+          <view class="cost-detail-item--count">X{{item.count}}</view>
         </view>
       </view>
     </view>

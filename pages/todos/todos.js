@@ -5,7 +5,7 @@ Page({
     goodsList: [{
       "uid": "m5txWMK7YPCVKXVvEG9mdbb",
       "name": "中文讲解器",
-      "imgUrl": "http://ou2aev0ty.bkt.clouddn.com/image/nj_zsl.png",
+      "imgUrl": "../../images/img-01.png",
       "desc": "南京中山陵中文讲解器",
       "deposit": 100,
       "rent": 100,
