@@ -9,11 +9,11 @@
     <!-- <image class="top-text" src="../../images/top-text.png" background-size="cover" mode="aspectFit" ></image> -->
     <view class="rent-tips">
       <view class="rent-tips--header">
-        <text class="rent-tips--header-text" onTap="goThere">东区租赁点</text>
+        <text class="rent-tips--header-text" onTap="goThere">{{rentalPoint.name}}</text>
         <image class="rent-tips--header-image" src="../../images/zmxy-logo.png" mode="aspectFit" />
       </view>
       <view class="rent-tips--body">
-        营业时间：周一至周五 9:00～18:00
+        营业时间：{{rentalPoint.officeHours}}
       </view>
       <view class="rent-tips--footer" onTap="showXuzhi">
         租赁须知：租机窗口取机，景区出口归还、半小时内...

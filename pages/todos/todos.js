@@ -1,26 +1,9 @@
-const app = getApp();
+const app = getApp()
 
 Page({
   data: {
-    goodsList: [{
-      "uid": "m5txWMK7YPCVKXVvEG9mdbb",
-      "name": "中文讲解器",
-      "imgUrl": "../../images/img-01.png",
-      "desc": "南京中山陵中文讲解器",
-      "deposit": 100,
-      "rent": 100,
-      "stock": 38,
-      count: 0
-    }, {
-      "uid": "m5txWMK7YPCVKXVvEG9mdbc",
-      "name": "外文讲解器",
-      "imgUrl": '../../images/img-01.png',
-      "desc": "南京中山陵外文讲解器",
-      "deposit": 100,
-      "rent": 100,
-      "stock": 9988,
-      count: 0
-    }],
+    rentalPoint: {},
+    goodsList: [],
     totalDeposit: 0,
     totalCount: 0
   },
@@ -31,8 +14,24 @@ Page({
       }),
     );
   },
-  onShow() {
-    this.setData({ todos: app.todos });
+  onReady () {
+    my.httpRequest({
+      url: `${app.globalData.apiHost}/api/scenery/${app.globalData.sceneryUid}/store/${app.globalData.storeUid}`,
+      success: (res) => {
+        if (res.status === 200) {
+          const rentalPoint = res.data.result
+          const goodsList = rentalPoint.goodsList
+          goodsList.map((item) => {
+            item.count = 0
+            return item
+          })
+          this.setData({
+            rentalPoint,
+            goodsList
+          })
+        }
+      }
+    })
   },
   showXuzhi () {
     my.alert({

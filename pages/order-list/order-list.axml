@@ -1,41 +1,35 @@
 <view class="order-list">
-  <view class="order-list-tab">
-    <label class="order-list-label order-list-label-pitch">全部</label>
-    <label class="order-list-label">待领取</label>
-    <label class="order-list-label">待归还</label>
-    <label class="order-list-label">待支付</label>
-    <label class="order-list-label">已逾期</label>
+  <view class="order-list-tab" a:if="{{orderList.length != 0 || activeTab != 1}}">
+    <view data-tab="1" onTap="changeTab" class="order-list-label {{activeTab == 1 ? 'active' : ''}}">全部</view>
+    <view data-tab="2" onTap="changeTab" class="order-list-label {{activeTab == 2 ? 'active' : ''}}">待领取</view>
+    <view data-tab="3" onTap="changeTab" class="order-list-label {{activeTab == 3 ? 'active' : ''}}">待归还</view>
+    <view data-tab="4" onTap="changeTab" class="order-list-label {{activeTab == 4 ? 'active' : ''}}">待支付</view>
+    <view data-tab="5" onTap="changeTab" class="order-list-label {{activeTab == 5 ? 'active' : ''}}">已逾期</view>
   </view>
-  <view class="order-list-ul">
-    <view class="order-list-li" onTap="goOrderDetail">
+  <view class="order-list-ul" a:if="{{orderList.length != 0}}">
+    <view a:for="{{orderList}}" class="order-list-li" onTap="goOrderDetail">
       <view class="order-list-title">
-        <text class="order-list-name">南区租赁点<text>
-        <text class="order-list-type">待领取<text>
+        <text class="order-list-name">{{item.name}}</text>
+        <text class="order-list-type {{specialStatusClass[item.status] || ''}}">{{statusMap[item.status]}}</text>
       </view>
       <view class="order-list-cont">
-        <view class="order-list-cont-tit">共租赁 2 件物品</view>
-        <text class="order-list-cont-text">棒！你已归还物品并完成付款<text>
+        <view class="order-list-cont-tit">{{item.contentTitle}}</view>
+        <text class="order-list-cont-text">{{item.contentText}}<text>
       </view>
     </view>
-    <view class="order-list-li">
-      <view class="order-list-title">
-        <text class="order-list-name">南区租赁点<text>
-        <text class="order-list-type">待领取<text>
-      </view>
-      <view class="order-list-cont">
-        <view class="order-list-cont-tit">共租赁 2 件物品</view>
-        <text class="order-list-cont-text">棒！你已归还物品并完成付款<text>
-      </view>
-    </view>
-    <view class="order-list-li">
-      <view class="order-list-title">
-        <text class="order-list-name">南区租赁点<text>
-        <text class="order-list-type">待领取<text>
-      </view>
-      <view class="order-list-cont">
-        <view class="order-list-cont-tit">共租赁 2 件物品</view>
-        <text class="order-list-cont-text">棒！你已归还物品并完成付款<text>
-      </view>
-    </view>
+  </view>
+  <view class="empty-wrap" a:if="{{orderList.length == 0}}">
+    <image class="order-empty" src="/images/order-empty.png" mode="aspectFit" />
+    <view></view>
+    <text a:if="{{activeTab == 1}}">你的订单空空如也~</text>
+    <text a:elif="{{activeTab == 2}}">您还没有待领取订单</text>
+    <text a:elif="{{activeTab == 3}}">您还没有待归还订单</text>
+    <text a:elif="{{activeTab == 4}}">您还没有待支付订单</text>
+    <text a:elif="{{activeTab == 5}}">您还没有已逾期订单</text>
+  </view>
+  <view class="empty-wrap" a:if="{{false}}">
+    <image class="order-empty" src="/images/order-error.png" mode="aspectFit" />
+    <view></view>
+    <text>系统异常</text>
   </view>
 </view>

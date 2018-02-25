@@ -1,24 +1,25 @@
-.order-list{
+.order-list {
   padding: 84rpx 0 0 0;
 }
-.order-list-tab{
+.order-list-tab {
   position: fixed;
   top:0;left:0;right:0;
   background: #fff;
   padding: 0 30rpx;
   height: 84rpx;
+  z-index: 1;
 }
-.order-list-label{
+.order-list-label {
   padding-top:10rpx; 
   width: 95rpx;
   text-align: center;
   line-height: 72rpx;
-  float:left;
+  display: inline-block;
   color:#878787;
   font-size:28rpx;
   margin: 0 20rpx;
 }
-.order-list-label-pitch{
+.order-list-label.active {
   border-bottom:4rpx solid #1CCFC9;
 }
 .order-list-li{
@@ -39,7 +40,7 @@
   line-height: 102rpx;
   font-size:32rpx;
 }
-.order-list-type{
+.order-list-type {
   position: absolute;
   right:0;
   top:28rpx;
@@ -51,6 +52,17 @@
   color:#1CCFC9;
   background: #F1FBFA;
 }
+.order-list-type.cancel {
+  background: #EDEDED;
+  border-color: #B6B6B6;
+  color: #ABABAB;
+}
+.order-list-type.late {
+  background: #FEF0EF;
+  border-color: #F7BCB7;
+  color: #F04134;
+}
+
 .order-list-cont{
   margin:auto 30rpx;
   background: url(../../images/to-right-li.png) no-repeat right 50rpx;
@@ -64,4 +76,17 @@
 .order-list-cont-text{
   font-size: 24rpx;
   color:#999;
+}
+
+.empty-wrap {
+  width: 750rpx;
+  text-align: center;
+  color: #333;
+}
+.order-empty {
+  width: 280rpx;
+  height: 280rpx;
+  border: 2rpx dashed #ddd;
+  margin-bottom: 20rpx;
+  margin-top: 116rpx;
 }

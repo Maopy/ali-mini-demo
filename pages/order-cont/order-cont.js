@@ -21,8 +21,13 @@ Page({
       count: 5
     }]
   },
-  onLoad() {
-    
+  onReady () {
+    my.httpRequest({
+      url: 'http://higuide.lightour.com/api/order?orderId=201801281605480250', // 目标服务器 url
+      success: (res) => {
+        console.log(res)
+      }
+    })
   },
   onBlur(e) {
     

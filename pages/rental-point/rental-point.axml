@@ -1,12 +1,12 @@
 <view>
   <view class="order-shop-item order-section">
     <view class="order-shop-item--header">
-      <text class="order-shop-item--header-title">取物点名称</text>
+      <text class="order-shop-item--header-title">{{rentalPoint.name}}</text>
       <text class="order-shop-item--header-distance">284m</text>
     </view>
-    <text class="order-shop-item--time">营业时间：周一至周五 9:00～18:00</text>
+    <text class="order-shop-item--time">营业时间：{{rentalPoint.officeHours}}</text>
     <view class="order-shop-item--address">
-      <text>宋城千古情中间家乐福大超市西门</text>
+      <text>{{rentalPoint.address}}</text>
     </view>
   </view>
   <view class="order-section">
@@ -14,36 +14,19 @@
       <text class="order-section--title-text">可租商品</text>
     </view>
     <view class="order-cont-ul">
-      <view class="order-cont-li cost-detail-item">
-        <image class="cost-detail-img" src="../../images/img-01.png" />
+      <view class="order-cont-li cost-detail-item {{index == rentalPoint.goodsList.length - 1 ? 'last' : ''}}" a:for="{{rentalPoint.goodsList}}">
+        <image class="cost-detail-img" src="{{item.imgUrl}}" />
         <view class="cost-detail-item--main">
-          <view>传统汉服女装藏蓝色</view>
+          <view>{{item.name}}</view>
           <view class="cost-detail-item--money">
             <view class="cost-detail-item--money-item">
               <text class="cost-detail-item--money-item-badge">租 金</text>
-              <text class="cost-detail-item--money-item-money">300.00</text>
+              <text class="cost-detail-item--money-item-money">{{item.rent}}.00</text>
               <text> /天</text>
             </view>
             <view class="cost-detail-item--money-item">
               <text class="cost-detail-item--money-item-badge">押 金</text>
-              <text class="cost-detail-item--money-item-money">500.00</text>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="order-cont-li cost-detail-item last">
-        <image class="cost-detail-img" src="../../images/img-01.png" />
-        <view class="cost-detail-item--main">
-          <view>传统汉服女装藏蓝色传统汉服女装藏蓝色传统汉服女装藏蓝色</view>
-          <view class="cost-detail-item--money">
-            <view class="cost-detail-item--money-item">
-              <text class="cost-detail-item--money-item-badge">租 金</text>
-              <text class="cost-detail-item--money-item-money">300.00</text>
-              <text> /天</text>
-            </view>
-            <view class="cost-detail-item--money-item">
-              <text class="cost-detail-item--money-item-badge">押 金</text>
-              <text class="cost-detail-item--money-item-money">500.00</text>
+              <text class="cost-detail-item--money-item-money">{{item.deposit}}.00</text>
             </view>
           </view>
         </view>
