@@ -5,10 +5,11 @@ Page({
     rentalPoint: {}
   },
   onLoad (query) {
+    const extConfig = my.getExtConfigSync()
     my.httpRequest({
-      url: `${app.globalData.apiHost}/api/scenery/${app.globalData.sceneryUid}/store/${query.storeId}`,
+      url: `${app.globalData.apiHost}/api/scenery/${extConfig.sceneryUid}/store/${query.storeId}`,
       success: (res) => {
-        if (res.status === 200) {
+        if (res.status === 200 && res.data.code === 10000) {
           const rentalPoint = res.data.result
           this.setData({
             rentalPoint

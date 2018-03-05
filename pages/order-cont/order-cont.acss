@@ -1,9 +1,53 @@
-.order-cont-top{
+.order-cont-top {
   height: 260rpx;
   width: 750rpx;
-  background: url(../../images/order-cont-top01.png) no-repeat top left;
+  background: url(/images/order-cont-top.png) no-repeat top left;
   background-size: 750rpx;
   color:#fff;
+  position: relative;
+}
+.order-cont-top.status-3 {
+  height: 341rpx;
+  background-size: auto 100%;
+}
+.order-cont-top.status-4 {
+  background-image: url(/images/order-cont-top-late.png)
+}
+.order-cont-bg {
+  width: 160rpx;
+  height: 217rpx;
+  background: url(/images/top-01.png);
+  background-size: 100%;
+  position: absolute;
+  right: 20rpx;
+  top: 60rpx;
+}
+.order-cont-bg.status-1 {
+  background-image: url(/images/top-01.png);
+}
+.order-cont-bg.status-2 {
+  background-image: url(/images/top-02.png);
+}
+.order-cont-bg.status-3 {
+  background-image: url(/images/top-03.png);
+}
+.order-cont-bg.status-4 {
+  background-image: url(/images/top-04.png);
+}
+.order-cont-bg.status-5 {
+  background-image: url(/images/top-05.png);
+}
+.order-cont-bg.status-6 {
+  background-image: url(/images/top-06.png);
+}
+.order-cont-bg.status-7 {
+  background-image: url(/images/top-06.png);
+}
+.order-cont-bg.status-8 {
+  background-image: url(/images/top-06.png);
+}
+.order-cont-bg.status-9 {
+  background-image: url(/images/top-05.png);
 }
 .order-cont-name{
   padding: 59rpx 0 20rpx 40rpx;
@@ -161,7 +205,12 @@
 }
 .deposit-item {
   color: #999;
-  margin-bottom: 30rpx;
+}
+.amount-item {
+  margin-top: 30rpx;
+}
+.amount-pay {
+  font-size: 40rpx;
 }
 
 .cancel-rule-wrapper {

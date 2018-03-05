@@ -1,20 +1,28 @@
 <view class="order-list">
   <view class="order-list-tab" a:if="{{orderList.length != 0 || activeTab != 1}}">
-    <view data-tab="1" onTap="changeTab" class="order-list-label {{activeTab == 1 ? 'active' : ''}}">全部</view>
-    <view data-tab="2" onTap="changeTab" class="order-list-label {{activeTab == 2 ? 'active' : ''}}">待领取</view>
-    <view data-tab="3" onTap="changeTab" class="order-list-label {{activeTab == 3 ? 'active' : ''}}">待归还</view>
-    <view data-tab="4" onTap="changeTab" class="order-list-label {{activeTab == 4 ? 'active' : ''}}">待支付</view>
-    <view data-tab="5" onTap="changeTab" class="order-list-label {{activeTab == 5 ? 'active' : ''}}">已逾期</view>
+    <view data-tab="1" data-status="0" onTap="changeTab" class="order-list-label {{activeTab == 1 ? 'active' : ''}}">全部</view>
+    <view data-tab="2" data-status="1" onTap="changeTab" class="order-list-label {{activeTab == 2 ? 'active' : ''}}">待领取</view>
+    <view data-tab="3" data-status="2" onTap="changeTab" class="order-list-label {{activeTab == 3 ? 'active' : ''}}">待归还</view>
+    <view data-tab="4" data-status="3" onTap="changeTab" class="order-list-label {{activeTab == 4 ? 'active' : ''}}">待支付</view>
+    <view data-tab="5" data-status="4" onTap="changeTab" class="order-list-label {{activeTab == 5 ? 'active' : ''}}">已逾期</view>
   </view>
   <view class="order-list-ul" a:if="{{orderList.length != 0}}">
-    <view a:for="{{orderList}}" class="order-list-li" onTap="goOrderDetail">
+    <view a:for="{{orderList}}" class="order-list-li" data-order-id="{{item.orderId}}" onTap="goOrderDetail">
       <view class="order-list-title">
-        <text class="order-list-name">{{item.name}}</text>
+        <text class="order-list-name">{{item.storeName || '订单'}}</text>
         <text class="order-list-type {{specialStatusClass[item.status] || ''}}">{{statusMap[item.status]}}</text>
       </view>
       <view class="order-list-cont">
-        <view class="order-list-cont-tit">{{item.contentTitle}}</view>
-        <text class="order-list-cont-text">{{item.contentText}}<text>
+        <view class="order-list-cont-tit">
+          <text>共租赁 {{item.orderDetails.length}} 件物品</text>
+          <image a:if="{{item.admitState == 'Y'}}" class="zmxy-logo" src="/images/zmxy-logo.png" mode="aspectFit" />
+        </view>
+        <text a:if="{{item.status <= 1}}" class="order-list-cont-text">请你于{{item.dtString}}前领取该物品</text>
+        <text a:if="{{item.status == 2}}" class="order-list-cont-text">将在{{item.dtString}}前再次扣款，请...</text>
+        <text a:if="{{item.status == 3}}" class="order-list-cont-text">将在{{item.dtString}}前再次扣款，请...</text>
+        <text a:if="{{item.status == 4}}" class="order-list-cont-text">截止{{item.dtString}}，支付宝仍自动...</text>
+        <text a:if="{{item.status == 5}}" class="order-list-cont-text">棒！你已归还物品并完成付款</text>
+        <text a:if="{{item.status >= 6}}" class="order-list-cont-text">订单已取消</text>
       </view>
     </view>
   </view>

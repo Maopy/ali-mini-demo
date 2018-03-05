@@ -1,84 +1,74 @@
 <view>
-  <view class="order-cont-top">
+  <view class="order-cont-top status-{{order.status}}">
     <view class="order-cont-name">
-      物品待领取
+      {{statusList[order.status]}}
     </view>
-    <view class="order-cont-text">
-      请你于2017年11月24日09:30前领取物品，如超时未领取，订单将自动取消。
+    <view a:if="{{order.status <= 1}}" class="order-cont-text">请你于{{autoCancel}}前领取物品，如超时未领取，订单将自动取消。</view>
+    <view a:if="{{order.status == 2}}" class="order-cont-text">请你于{{autoCancel}}前归还物品，逾期将对你的信用产生影响。</view>
+    <view a:if="{{order.status == 3}}" class="order-cont-text">
+      <view>支付宝自动扣款失败？</view>
+      <view>我们将在{{autoCancel}}前再次扣款，请确保你的支付宝账户资金充足，扣款失败将影响你的信用。</view>
     </view>
+    <view a:if="{{order.status == 4}}" class="order-cont-text">截止{{autoCancel}}，支付宝仍自动代扣失败，已对你的信用产生影响。</view>
+    <view a:if="{{order.status == 5}}" class="order-cont-text">棒，你借的物品已成功归还，费用已由支付宝自动扣款，完成了一次守约。</view>
+    <view a:if="{{order.status == 9}}" class="order-cont-text">你已完成付款，芝麻信用提醒你，按时履约有助于芝麻信用的积累。</view>
+    <view a:if="{{order.status >= 6 && order.status != 9}}" class="order-cont-text">订单已取消。</view>
+    <view class="order-cont-bg status-{{order.status}}"></view>
   </view>
-  <view class="order-section">
-    <view class="order-section--title">取物凭证</view>
+  <view a:if="{{order.status < 3}}" class="order-section">
+    <view class="order-section--title">{{order.status > 1 ? '还' : '取'}}物凭证</view>
     <view class="order-cont-rwm">
-      <image class="order-cont-rwm-img" src="../../images/rwm.png" mode="aspectFit"/>
+      <!-- <image class="order-cont-rwm-img" src="../../images/rwm.png" mode="aspectFit"/> -->
+      <!-- <image class="order-cont-rwm-img" mode="scaleToFill" src="{{imagePath}}"></image> -->
+      <canvas id="mycanvas" canvas-id="mycanvas" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" />
       <text class="order-cont-rwm--text">还物时需出示以上二维码</text>
     </view>
 
     <view class="order-section--title">
       <text class="order-shop-tit-r"></text>
-      <text class="order-section--title-text">取物门店信息</text>
-      <view class="order-section--title-addition">
+      <text class="order-section--title-text">{{order.status > 1 ? '归还' : '取物'}}门店信息</text>
+      <!-- <view class="order-section--title-addition">
         <text class="order-section--title-addition-text button-text">展开更多</text>
-      </view>
+      </view> -->
     </view>
     <view class="order-cont-ul">
-      <view class="order-cont-li order-shop-item">
+      <view a:for="{{stores}}" class="order-cont-li order-shop-item {{index == stores.length - 1 ? 'last' : ''}}">
         <view class="order-shop-item--header">
-          <text class="order-shop-item--header-title">取物点名称</text>
-          <text class="order-shop-item--header-distance">284m</text>
+          <text class="order-shop-item--header-title">{{item.name}}</text>
+          <!-- <text class="order-shop-item--header-distance">284m</text> -->
         </view>
-        <text class="order-shop-item--time">营业时间：周一至周五 9:00～18:00</text>
+        <text class="order-shop-item--time">营业时间：{{item.officeHours}}</text>
         <view class="order-shop-item--address">
-          <text>宋城千古情中间家乐福大超市西门</text>
-        </view>
-      </view>
-      <view class="order-cont-li order-shop-item">
-        <view class="order-shop-item--header">
-          <text class="order-shop-item--header-title">取物点名称</text>
-          <text class="order-shop-item--header-distance">284m</text>
-        </view>
-        <text class="order-shop-item--time">营业时间：周一至周五 9:00～18:00</text>
-        <view class="order-shop-item--address">
-          <text>宋城千古情中间家乐福大超市西门</text>
-        </view>
-      </view>
-      <view class="order-cont-li order-shop-item last">
-        <view class="order-shop-item--header">
-          <text class="order-shop-item--header-title">取物点名称</text>
-          <text class="order-shop-item--header-distance">284m</text>
-        </view>
-        <text class="order-shop-item--time">营业时间：周一至周五 9:00～18:00</text>
-        <view class="order-shop-item--address">
-          <text>宋城千古情中间家乐福大超市西门</text>
+          <text>{{item.address}}</text>
         </view>
       </view>
     </view>
   </view>
 
-  <view class="order-section">
+  <view a:if="{{totalCount > 0}}" class="order-section">
     <view class="order-section--title">
       <text class="order-section--title-text">费用明细</text>
-      <text class="order-section--title-badge">芝麻信用·免押金</text>
+      <text a:if="{{order.admitState == 'Y'}}" class="order-section--title-badge">芝麻信用·免押金</text>
       <view class="order-section--title-addition">
         <text class="order-section--title-addition-text">共租
-          <text class="cost-count">2</text>
+          <text class="cost-count">{{totalCount}}</text>
         件</text>
       </view>
     </view>
     <view class="order-cont-ul">
-      <view a:for="{{goodsList}}" class="order-cont-li cost-detail-item {{index == goodsList.length - 1 ? 'last' : ''}}">
-        <image class="cost-detail-img" src="../../images/img-01.png" />
+      <view a:for="{{order.orderDetails}}" class="order-cont-li cost-detail-item {{index == order.orderDetails.length - 1 ? 'last' : ''}}">
+        <image class="cost-detail-img" src="{{item.goodsImgUrl}}" />
         <view class="cost-detail-item--main">
-          <view>{{item.name}}</view>
+          <view>{{item.goodsName}}</view>
           <view class="cost-detail-item--money">
             <view class="cost-detail-item--money-item">
               <text class="cost-detail-item--money-item-badge">租 金</text>
-              <text class="cost-detail-item--money-item-money">{{item.rent}}.00</text>
+              <text class="cost-detail-item--money-item-money">{{(item.rent / 100).toFixed(2)}}</text>
               <text> /天</text>
             </view>
             <view class="cost-detail-item--money-item">
               <text class="cost-detail-item--money-item-badge">押 金</text>
-              <text class="cost-detail-item--money-item-money">{{item.deposit}}.00</text>
+              <text class="cost-detail-item--money-item-money">{{(item.deposit / 100).toFixed(2)}}</text>
             </view>
           </view>
           <view class="cost-detail-item--count">X{{item.count}}</view>
@@ -88,16 +78,26 @@
     <view class="deposit">
       <view class="deposit-item">
         <text>总押金</text>
-        <text class="fl-r">¥1,000.00</text>
+        <text class="fl-r">¥{{ (totalDeposit / 100).toFixed(2) }}</text>
       </view>
-      <view>
+      <view a:if="{{order.admitState == 'Y'}}" class="amount-item">
         <text>芝麻信用免押金</text>
-        <text class="fl-r">-¥1,000.00</text>
+        <text class="fl-r">-¥{{ (totalDeposit / 100).toFixed(2) }}</text>
       </view>
+      <block a:if="{{order.status > 2}}">
+        <view class="deposit-item amount-item">
+          <text>总租金</text>
+          <text class="fl-r">¥{{ (totalAmount / 100).toFixed(2) }}</text>
+        </view>
+        <view class="amount-item">
+          <text>实付款</text>
+          <text class="fl-r">¥<text class="amount-pay">{{ (order.status >= 6 && order.status != 9) ? '0.00' : order.admitState == 'Y' ? (totalAmount / 100).toFixed(2) : ((totalAmount + totalDeposit) / 100).toFixed(2) }}</text></text>
+        </view>
+      </block>
     </view>
   </view>
 
-  <view class="order-section cancel-rule-wrapper">
+  <view a:if="{{order.status < 2}}" class="order-section cancel-rule-wrapper">
     <view class="order-section--title">
       <text class="order-section--title-text">取消规则</text>
     </view>
@@ -123,13 +123,13 @@
       </view>
       <view class="order-info-item">
         <text>订单号</text>
-        <text class="fl-r">1180757132</text>
+        <text class="fl-r">{{order.orderId}}</text>
       </view>
-      <view class="order-info-item">
+      <view a:if="{{order.status > 1}}" class="order-info-item">
         <text>领取时间</text>
         <text class="fl-r">2017年11月24日 09:25</text>
       </view>
-      <view class="order-info-item">
+      <view a:if="{{order.status > 2}}" class="order-info-item">
         <text>归还时间</text>
         <text class="fl-r">2017年11月29日 17:59</text>
       </view>

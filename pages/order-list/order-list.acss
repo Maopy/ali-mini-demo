@@ -68,6 +68,11 @@
   background: url(../../images/to-right-li.png) no-repeat right 50rpx;
   background-size: 16rpx;
 }
+.zmxy-logo {
+  width: 220rpx;
+  height: 36rpx;
+  vertical-align: text-top;
+}
 .order-list-cont-tit{
   display: block;
   font-size:28rpx;

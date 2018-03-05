@@ -2,7 +2,7 @@
   <view class="order-shop-item order-section">
     <view class="order-shop-item--header">
       <text class="order-shop-item--header-title">{{rentalPoint.name}}</text>
-      <text class="order-shop-item--header-distance">284m</text>
+      <!-- <text class="order-shop-item--header-distance">284m</text> -->
     </view>
     <text class="order-shop-item--time">营业时间：{{rentalPoint.officeHours}}</text>
     <view class="order-shop-item--address">
@@ -14,19 +14,19 @@
       <text class="order-section--title-text">可租商品</text>
     </view>
     <view class="order-cont-ul">
-      <view class="order-cont-li cost-detail-item {{index == rentalPoint.goodsList.length - 1 ? 'last' : ''}}" a:for="{{rentalPoint.goodsList}}">
+      <view a:for="{{rentalPoint.goodsList}}" class="order-cont-li cost-detail-item {{index == rentalPoint.goodsList.length - 1 ? 'last' : ''}}">
         <image class="cost-detail-img" src="{{item.imgUrl}}" />
         <view class="cost-detail-item--main">
           <view>{{item.name}}</view>
           <view class="cost-detail-item--money">
             <view class="cost-detail-item--money-item">
               <text class="cost-detail-item--money-item-badge">租 金</text>
-              <text class="cost-detail-item--money-item-money">{{item.rent}}.00</text>
+              <text class="cost-detail-item--money-item-money">{{ (item.rent / 100).toFixed(2) }}</text>
               <text> /天</text>
             </view>
             <view class="cost-detail-item--money-item">
               <text class="cost-detail-item--money-item-badge">押 金</text>
-              <text class="cost-detail-item--money-item-money">{{item.deposit}}.00</text>
+              <text class="cost-detail-item--money-item-money">{{ (item.deposit / 100).toFixed(2) }}</text>
             </view>
           </view>
         </view>

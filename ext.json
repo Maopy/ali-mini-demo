@@ -9,5 +9,10 @@
   ],
   "window": {
     "defaultTitle": "共享导游"
+  },
+  "extEnable": true,
+  "ext": {
+    "sceneryUid": "m5txWMK7YPCVKXVvEG9mdg",
+    "storeUid": "m5txWMK7YPCVKXVvEG9mdaa"
   }
 }
