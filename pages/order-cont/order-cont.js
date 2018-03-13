@@ -26,6 +26,9 @@ Page({
     var initUrl = '{"storeId":"m5txWMK7YPCVKXVvEG9mdaa"}'
     this.createQrCode(initUrl, "mycanvas", size.w, size.h)
     this.drawQRCode()
+    this.setData({
+      query
+    })
 
     app.getUserInfo().then((user) => {
       this.setData({

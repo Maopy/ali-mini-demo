@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/map/map",
+    
     "pages/order-cont/order-cont",
     "pages/order-list/order-list",
-    
+    "pages/map/map",
     "pages/rental-point/rental-point",
     "pages/todos/todos"
   ],
